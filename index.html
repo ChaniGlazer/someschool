@@ -1,246 +1,206 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מרכז שליטה ליועץ - Premium UX</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6c5ce7;
-            --primary-light: #a29bfe;
-            --secondary: #00b894;
-            --accent: #0984e3;
-            --bg-dark: #0f172a;
-            --glass: rgba(255, 255, 255, 0.95);
-            --card-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מרכז שליטה ליועץ - Premium UX</title>
 
-        body {
-            font-family: 'Assistant', sans-serif;
-            background: radial-gradient(circle at top right, #6c5ce7, #f8f9fa), 
-                        radial-gradient(circle at bottom left, #00b894, #f8f9fa);
-            background-attachment: fixed;
-            margin: 0;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-            color: #2d3436;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        .main-container {
-            width: 100%;
-            max-width: 1000px;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 32px;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            animation: fadeIn 0.8s ease-out;
-            box-sizing: border-box;
-        }
+<style>
+:root {
+    --primary: #6c5ce7;
+    --primary-light: #a29bfe;
+    --secondary: #00b894;
+    --accent: #0984e3;
+    --glass: rgba(255, 255, 255, 0.95);
+    --card-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+body {
+    font-family: 'Assistant', sans-serif;
+    background: radial-gradient(circle at top right, #6c5ce7, #f8f9fa),
+                radial-gradient(circle at bottom left, #00b894, #f8f9fa);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    color: #2d3436;
+}
 
-        .header { text-align: center; margin-bottom: 45px; }
-        .header h1 { 
-            font-size: 3rem; 
-            margin: 0; 
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-        .header p { color: #636e72; font-size: 1.2rem; margin-top: 10px; font-weight: 400; }
+.main-container {
+    width: 100%;
+    max-width: 1000px;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border-radius: 32px;
+    padding: 40px;
+    box-shadow: var(--card-shadow);
+}
 
-        .section-label {
-            font-size: 1.2rem;
-            margin: 40px 0 20px;
-            padding-right: 15px;
-            border-right: 5px solid var(--primary);
-            font-weight: 800;
-            color: #1e293b;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+/* HEADER */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
+.header h1 {
+    font-size: 3rem;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-        .nav-card {
-            background: #ffffff;
-            padding: 24px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            color: #2d3436;
-            text-align: center;
-            font-weight: 700;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 1px solid #f1f5f9;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+/* 🔥 הפרדה ויזואלית חדשה */
+.section-box {
+    background: rgba(255,255,255,0.85);
+    border-radius: 24px;
+    padding: 25px;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+    border: 1px solid rgba(255,255,255,0.6);
+    transition: 0.3s;
+}
 
-        .nav-card:hover {
-            transform: translateY(-8px);
-            background: #fff;
-            border-color: var(--primary);
-            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.2);
-            color: var(--primary);
-        }
+.section-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(108,92,231,0.15);
+}
 
-        /* עיצוב מיוחד לכפתור סיכום פגישה */
-        #summary-btn {
-            background: #fdfaff;
-            border: 2px dashed var(--primary-light);
-            color: var(--primary);
-        }
+.section-label {
+    font-size: 1.2rem;
+    margin: 0 0 20px;
+    padding-right: 12px;
+    border-right: 5px solid var(--primary);
+    font-weight: 800;
+}
 
-        #summary-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-style: solid;
-        }
+/* GRID */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
 
-        .selection-zone {
-            background: #f8fafc;
-            padding: 30px;
-            border-radius: 24px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            border: 2px solid #edf2f7;
-        }
+.nav-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #2d3436;
+    text-align: center;
+    font-weight: 700;
+    transition: 0.3s;
+    border: 1px solid #f1f5f9;
+}
 
-        select {
-            width: 100%;
-            padding: 15px;
-            border-radius: 14px;
-            border: 2px solid #e2e8f0;
-            background: white;
-            font-family: 'Assistant';
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            box-sizing: border-box;
-        }
+.nav-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    color: var(--primary);
+}
 
-        select:focus { border-color: var(--primary); outline: none; }
+/* selection */
+.selection-zone {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
-        .action-group {
-            grid-column: span 2;
-            display: flex;
-            gap: 15px;
-        }
+select {
+    padding: 15px;
+    border-radius: 14px;
+    border: 2px solid #e2e8f0;
+    font-weight: 600;
+}
 
-        .action-btn {
-            flex: 1;
-            padding: 16px;
-            border-radius: 14px;
-            border: none;
-            font-family: 'Assistant';
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            color: white;
-        }
+.action-group {
+    grid-column: span 2;
+    display: flex;
+    gap: 15px;
+}
 
-        .btn-view { background: var(--secondary); box-shadow: 0 4px 14px rgba(0, 184, 148, 0.3); }
-        .btn-copy { background: var(--primary); box-shadow: 0 4px 14px rgba(108, 92, 231, 0.3); }
+.action-btn {
+    flex: 1;
+    padding: 16px;
+    border-radius: 14px;
+    border: none;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+}
 
-        .action-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
-        .action-btn:active { transform: scale(0.98); }
+.btn-view { background: var(--secondary); }
+.btn-copy { background: var(--primary); }
 
-        .share-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-        }
+/* share */
+.share-list {
+    display: grid;
+    gap: 15px;
+}
 
-        .share-item {
-            background: white;
-            padding: 18px 25px;
-            border-radius: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
-        }
+.share-item {
+    background: white;
+    padding: 18px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+}
 
-        .share-item:hover { border-color: var(--primary-light); }
-        .share-item span { font-weight: 700; color: #475569; }
+.copy-button {
+    background: #f1f5f9;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
 
-        .copy-button {
-            background: #f1f5f9;
-            color: var(--primary);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 800;
-            transition: 0.3s;
-        }
+/* mobile */
+@media (max-width: 768px) {
+    .selection-zone {
+        grid-template-columns: 1fr;
+    }
 
-        .copy-button:hover { background: var(--primary); color: white; }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .main-container { padding: 20px; border-radius: 20px; }
-            .header h1 { font-size: 2rem; }
-            .header p { font-size: 1rem; }
-            .selection-zone { grid-template-columns: 1fr; padding: 20px; }
-            .action-group { grid-column: span 1; flex-direction: column; }
-            .button-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
-            .share-list { grid-template-columns: 1fr; }
-            .share-item { padding: 15px; flex-direction: column; gap: 12px; text-align: center; }
-            .copy-button { width: 100%; }
-        }
-
-        @media (max-width: 480px) {
-            .button-grid { grid-template-columns: 1fr 1fr; }
-            .header h1 { font-size: 1.6rem; }
-        }
-    </style>
+    .action-group {
+        grid-column: span 1;
+        flex-direction: column;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <div class="main-container">
-    <div class="header">
-        <h1>מרכז שליטה Premium</h1>
-        <p>ניהול וייעוץ חינוכי חכם • Unified Dashboard</p>
-    </div>
 
+<div class="header">
+    <h1>מרכז שליטה Premium</h1>
+</div>
+
+<!-- 🚀 גישה מהירה -->
+<div class="section-box">
     <div class="section-label">🚀 גישה מהירה למערכות</div>
-    <div class="button-grid">
-        <a href="https://someschool.monday.com/boards/1541471339/views/42571594" target="_blank" class="nav-card"><span>📞</span> פניות הורים</a>
-        <a href="https://someschool.monday.com/boards/1541471339/views/45904460" target="_blank" class="nav-card"><span>👨‍🏫</span> פניות מורים</a>
-        <a href="https://someschool.monday.com/overviews/11126245" target="_blank" class="nav-card"><span>📊</span> מרכז בקרה</a>
-        <a href="https://someschool.monday.com/boards/1447099307/views/16290552" target="_blank" class="nav-card"><span>🎓</span> כל התלמידים</a>
-        <a href="https://someschool.monday.com/boards/5092169178/views/44126047" target="_blank" class="nav-card" id="summary-btn"><span>✍️</span> סיכום פגישה</a>
-        <a href="https://someschool.monday.com/boards/5092169178/views/46565001" target="_blank" class="nav-card"><span>📜</span> היסטוריית פגישות</a>
-    </div>
 
-    <div class="section-label">🏫ניהול מצב כיתתי חכם, לא גמור סופית- מצריך תוכנית פרו</div>
+    <div class="button-grid">
+        <a href="https://someschool.monday.com/boards/1541471339/views/42571594" target="_blank" class="nav-card">📞 פניות הורים</a>
+        <a href="https://someschool.monday.com/boards/1541471339/views/45904460" target="_blank" class="nav-card">👨‍🏫 פניות מורים</a>
+        <a href="https://someschool.monday.com/overviews/11126245" target="_blank" class="nav-card">📊 מרכז בקרה</a>
+        <a href="https://someschool.monday.com/boards/1447099307/views/16290552" target="_blank" class="nav-card">🎓 כל התלמידים</a>
+        <a href="https://someschool.monday.com/boards/5092169178/views/44126047" target="_blank" class="nav-card">✍️ סיכום פגישה</a>
+        <a href="https://someschool.monday.com/boards/5092169178/views/46565001" target="_blank" class="nav-card">📜 היסטוריית פגישות</a>
+    </div>
+</div>
+
+<!-- 🏫 ניהול -->
+<div class="section-box">
+    <div class="section-label">🏫 ניהול מצב כיתתי חכם</div>
+
     <div class="selection-zone">
         <select id="classPick">
             <option value="">🏫 בחר כיתה...</option>
@@ -264,92 +224,78 @@
         </select>
 
         <div class="action-group">
-            <button class="action-btn btn-view" onclick="goToClassTable()">🔍 צפה בטבלת המצב</button>
-            <button class="action-btn btn-copy" id="teacherBtn" onclick="copyTeacherLink()">🔗 העתק קישור למורה</button>
+            <button class="action-btn btn-view" onclick="goToClassTable()">🔍 צפה בטבלה</button>
+            <button class="action-btn btn-copy" id="teacherBtn" onclick="copyTeacherLink()">🔗 העתק קישור</button>
         </div>
-    </div>
-
-    <div class="section-label">🔗 קישורי הפצה מהירים</div>
-    <div class="share-list">
-        <div class="share-item">
-            <span>📝 טופס פנייה למורים</span>
-            <button class="copy-button" onclick="copyValue('https://forms.monday.com/forms/b7ec382631ba4e4e8144a15d9709cdb8?r=euc1', this)">העתק</button>
-        </div>
-        <div class="share-item">
-            <span>🏠 טופס פנייה להורים</span>
-            <button class="copy-button" onclick="copyValue('https://forms.monday.com/forms/3a52cc1446fab90ae337b5293d2cdbaf?r=euc1', this)">העתק</button>
-        </div>
-    </div>
-
-    <div class="section-label">⚙️ ניהול אדמיניסטרטיבי</div>
-    <div class="button-grid">
-        <a href="https://wkf.ms/4arsBX9" target="_blank" class="nav-card"><span>➕</span> הוספת תלמיד</a>
-        <a href="https://wkf.ms/3VSgi1G" target="_blank" class="nav-card"><span>➕</span> הוספת מורה</a>
-        <a href="https://someschool.monday.com/boards/1456791981/views/13636542" target="_blank" class="nav-card"><span>👥</span> טבלת מורים</a>
     </div>
 </div>
 
+<!-- 🔗 שיתופים -->
+<div class="section-box">
+    <div class="section-label">🔗 קישורי הפצה מהירים</div>
+
+    <div class="share-list">
+        <div class="share-item">
+            <span>📝 טופס מורים</span>
+            <button class="copy-button" onclick="copyValue('https://forms.monday.com/forms/b7ec382631ba4e4e8144a15d9709cdb8?r=euc1', this)">העתק</button>
+        </div>
+
+        <div class="share-item">
+            <span>🏠 טופס הורים</span>
+            <button class="copy-button" onclick="copyValue('https://forms.monday.com/forms/3a52cc1446fab90ae337b5293d2cdbaf?r=euc1', this)">העתק</button>
+        </div>
+    </div>
+</div>
+
+<!-- ⚙️ אדמין -->
+<div class="section-box">
+    <div class="section-label">⚙️ ניהול אדמיניסטרטיבי</div>
+
+    <div class="button-grid">
+        <a href="https://wkf.ms/4arsBX9" target="_blank" class="nav-card">➕ הוספת תלמיד</a>
+        <a href="https://wkf.ms/3VSgi1G" target="_blank" class="nav-card">➕ הוספת מורה</a>
+        <a href="https://someschool.monday.com/boards/1456791981/views/13636542" target="_blank" class="nav-card">👥 טבלת מורים</a>
+    </div>
+</div>
+
+</div>
+
 <script>
-    const classLinks = {
-        'A': {
-            'tora': 'https://someschool.monday.com/boards/5092851319/views/45187946',
-            'lashon': 'https://someschool.monday.com/boards/5092851319/views/45187943',
-            'heshbon': 'https://someschool.monday.com/boards/5092851319/views/45187945',
-            'general': 'https://someschool.monday.com/boards/5092851319/views/45187942'
-        },
-        'B': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' },
-        'C': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' },
-        'D': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' },
-        'E': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' },
-        'F': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' },
-        'Z1': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' },
-        'Z2': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' },
-        'H1': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' },
-        'H2': { 'tora': '#', 'lashon': '#', 'heshbon': '#', 'general': '#' }
-    };
-
-    function goToClassTable() {
-        const cls = document.getElementById('classPick').value;
-        if(!cls) return alert('אנא בחר כיתה');
-        const url = classLinks[cls]['general'];
-        if(url === '#' || !url) return alert('הקישור לטבלה הכללית עדיין לא הוגדר');
-        window.open(url, '_blank');
+const classLinks = {
+    'A': {
+        'tora': 'https://someschool.monday.com/boards/5092851319/views/45187946',
+        'lashon': 'https://someschool.monday.com/boards/5092851319/views/45187943',
+        'heshbon': 'https://someschool.monday.com/boards/5092851319/views/45187945',
+        'general': 'https://someschool.monday.com/boards/5092851319/views/45187942'
     }
+};
 
-    function copyTeacherLink() {
-        const cls = document.getElementById('classPick').value;
-        const sub = document.getElementById('subjectPick').value;
-        const btn = document.getElementById('teacherBtn');
-        
-        if(!cls || !sub) return alert('אנא בחר כיתה ומקצוע');
-        
-        const url = classLinks[cls][sub];
-        if(url === '#' || !url) return alert('הקישור למקצוע זה עדיין לא הוגדר');
-        
-        navigator.clipboard.writeText(url).then(() => {
-            const originalText = btn.innerHTML;
-            btn.innerHTML = "✅ הועתק בהצלחה!";
-            btn.style.background = "#2d3436";
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = "";
-            }, 2000);
-        });
-    }
+function goToClassTable() {
+    const cls = document.getElementById('classPick').value;
+    if(!cls) return alert('בחר כיתה');
+    const url = classLinks[cls]['general'];
+    window.open(url, '_blank');
+}
 
-    function copyValue(val, btn) {
-        navigator.clipboard.writeText(val).then(() => {
-            const originalText = btn.innerText;
-            btn.innerText = "הועתק! ✓";
-            btn.style.background = "#00b894";
-            btn.style.color = "white";
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.style.background = "";
-                btn.style.color = "";
-            }, 2000);
-        });
-    }
+function copyTeacherLink() {
+    const cls = document.getElementById('classPick').value;
+    const sub = document.getElementById('subjectPick').value;
+    const btn = document.getElementById('teacherBtn');
+
+    const url = classLinks[cls][sub];
+
+    navigator.clipboard.writeText(url).then(() => {
+        btn.innerText = "הועתק ✔";
+        setTimeout(() => btn.innerText = "🔗 העתק קישור", 1500);
+    });
+}
+
+function copyValue(val, btn) {
+    navigator.clipboard.writeText(val).then(() => {
+        btn.innerText = "הועתק ✔";
+        setTimeout(() => btn.innerText = "העתק", 1500);
+    });
+}
 </script>
 
 </body>
