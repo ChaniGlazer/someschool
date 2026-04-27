@@ -56,16 +56,22 @@ body {
 
 /* 🔥 הפרדה ויזואלית חדשה */
 .section-box {
-    border-radius: 26px;
-    padding: 28px;
-    margin-bottom: 35px;
-    background: linear-gradient(135deg, #ffffff, #f1f5ff);
-    border: 1px solid #dfe6ff;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-    position: relative;
-    overflow: hidden;
+    background: rgba(255,255,255,0.9);
+    border-radius: 24px;
+    padding: 25px;
+    margin-bottom: 30px;
+
+    /* ההבדל האמיתי כאן */
+    border: 1px solid #eef2f7;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+
+    transition: 0.25s ease;
 }
 
+.section-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+}
 /* פס צבע למעלה - אפקט וואו */
 .section-box::before {
     content: "";
