@@ -1,0 +1,21 @@
+{
+  "name": "school-crm",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "hash-password": "node scripts/hash-password.js"
+  },
+  "dependencies": {
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "bcryptjs": "3.0.3",
+    "xlsx": "0.18.5"
+  }
+}
